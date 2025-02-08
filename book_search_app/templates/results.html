@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Search Results for "{{ query }}"</h1>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Book Title</th>
+                    <th>Year of Publication</th>
+                    <th>Author</th>
+                    <th>File Type</th>
+                    <th>Download</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td data-label="Book Title">{{ result['Title'] }}</td>
+                    <td data-label="Year of Publication">{{ result['Year'] }}</td>
+                    <td data-label="Author">{{ result['Author'] }}</td>
+                    <td data-label="File Type">{{ result['Extension'] }}</td>
+                    <td data-label="Download"><a href="{{ result['Mirror_1'] }}" target="_blank">Download</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    <a href="/">Back to search</a>
+</body>
+</html>
