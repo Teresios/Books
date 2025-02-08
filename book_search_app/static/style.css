@@ -81,6 +81,32 @@ li {
     border-bottom: 1px solid #ddd;
 }
 
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin: 0 5px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    color: #008cba;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.pagination a.active {
+    background-color: #008cba;
+    color: white;
+    border: none;
+}
+
+.pagination a:hover {
+    background-color: #005f5f;
+    color: white;
+}
+
 @media (max-width: 600px) {
     input[type="text"] {
         width: 100%;
